@@ -1,6 +1,5 @@
 const request  = require('request-promise');
 const stats    = require('stats-lite');
-const pairs    = require('./pairs.json');
 const config   = require('./config.json');
 const dateFormat = require('dateformat');
 function average(array) {
@@ -12,6 +11,8 @@ function average(array) {
 }
 
 function main() {
+    delete pairs;
+    let pairs = require('./pairs.json');
     for (i = 0 ; i < pairs.length ; i++) {
         let pair = pairs[i]
         const options = {
